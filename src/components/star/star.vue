@@ -1,6 +1,6 @@
 <template>
   <div class="star" :class="starType">
-    <span v-for="itemClass in itemClasses" :class="itemClass" class="star-item" track-by="$index"></span>
+    <span v-for="(itemClass, index) in itemClasses" :class="itemClass" class="star-item" :key="index"></span>
   </div>
 </template>
 
@@ -23,7 +23,7 @@
       starType() {
         return 'star-' + this.size;
       },
-      itemClass() {
+      itemClasses() {
         let result = [];
         let score = Math.floor(this.score * 2) / 2;
         let hasDecimal = score % 1 !== 0;
@@ -57,7 +57,7 @@
         width: 20px;
         height: 20px;
         margin-right: 22px;
-        backgound-size: 20px 20px;
+        background-size: 20px 20px;
         &:last-child
           margin-right: 0;
         &.on
