@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="price">0元</div>
-        <div class="desc"></div>
+        <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
       </div>
       <div class="content-right"></div>
     </div>
@@ -16,7 +16,18 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {};
+  export default {
+    props: {
+      deliveryPrice: {
+        type: Number,
+        default: 0
+      },
+      minPrice: {
+        type: Number,
+        default: 0
+      }
+    }
+  };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
@@ -62,12 +73,17 @@
           line-height: 24px;
           padding-right: 12px;
           font-size: 16px;
-          color:rgba(255, 255, 255, .4);
+          color: rgba(255, 255, 255, .4);
           font-weight: 700;
           box-sizing: border-box;
           border-right: 1px solid rgba(255, 255, 255, .1);
         .desc
           display: inline-block;
+          vertical-align: top;
+          line-height: 24px;
+          margin: 12px 0 0 12px;
+          color: rgba(255, 255, 255, .4);
+          font-size: 10px;
       .content-right
         flex: 0 0 105px;
         width: 105px;
